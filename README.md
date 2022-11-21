@@ -1,21 +1,22 @@
 # ImageFournier
 Image Fournier Transform with multiple different methods
 
-## Original Image
-![My Image](casaloma_resized.jpg)
+## Original Images
+![My Image](images/casaloma_resized.jpg)
+![My Image](images/finance_square.jpg)
 
 ### Noise Generation
-![My Image](saltpep_noisy_image.jpg)
+![My Image](images/edited/saltpep_noisy_image.jpg)
 
 ### High Pass filter Cropped Grayscale
-![My Image](hpf_filtered_image.jpg)
+![My Image](images/edited/hpf_filtered_image.jpg)
 
 ### Laplacian of Gaussian Filter
-![My Image](lap_filtered_image.png)
+![My Image](images/edited/lap_filtered_image.png)
 
 ### Denoised Salt & Pepper
-![My Image](saltPep_denoised_image.jpg)
+![My Image](images/edited/saltPep_denoised_image.jpg)
 
 ### Edge Detection with Sobel and Prewitt
-![prewit](prewitt_filtered_image.jpg)
-![sobel](sobel_filtered_image.jpg)
+![prewit](images/edited/prewitt_filtered_image.jpg)
+![sobel](images/edited/sobel_filtered_image.jpg)
