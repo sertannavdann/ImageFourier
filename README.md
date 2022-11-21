@@ -2,7 +2,7 @@
 Image Fournier Transform with multiple different methods
 
 ## Original Image
-![My Image](casaloma_resized.jpeg)
+![My Image](casaloma_resized.jpg)
 
 ### Noise Generation
 ![My Image](saltpep_noisy_image.jpg)
