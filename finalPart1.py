@@ -1,6 +1,8 @@
 from scipy.fftpack import fft, fftfreq, fftshift, ifft
+from skimage.util import compare_images
 import matplotlib.pyplot as plt
 import scipy.signal as signal
+from skimage import filters
 from scipy import ndimage
 import numpy as np
 import cv2
@@ -8,18 +10,16 @@ import cv2
 class ImageFilter:
     def __init__(self, image):
         self.image = image
-        self.image_shape = image.shape
-        self.image_size = image.size
-        self.image_dtype = image.dtype
-        self.image_min = np.min(image)
-        self.image_max = np.max(image)
-        self.image_mean = np.mean(image)
-        self.image_std = np.std(image)
-        self.image_var = np.var(image)
+        
+    def ImageCenterCrop(self, image, scale):
+        height, width = image.shape
+        cropped_image = image[int(height*scale):int(height*(1-scale)), int(width*scale):int(width*(1-scale))]
+        return cropped_image
 
-    def ImageResize(self, image, scale):
-        self.image = cv2.resize(image, (0,0), fx=scale, fy=scale)
-        return self.image
+    def ImageResize_Grayscale(self, image, scale):
+        image = cv2.resize(image, (0,0), fx=scale, fy=scale)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        return image
 
     def FourierTransform(self, image):
         f = fft(image)
@@ -65,12 +65,12 @@ class ImageFilter:
             h /= hsum
         return h
 
-    def LaplacianOfGaussianFilter(self, image, sigma=1):
+    def LaplacianOfGaussianFilter(self, image, sigma=1): # Edge detection
         h = self.laplacian_of_gaussian_filter(image.shape, sigma)
         filtered_image = signal.convolve2d(image, h, mode='same', boundary='symm')
         return filtered_image
 
-    def laplacian_of_gaussian_filter(self, shape, sigma=1):
+    def laplacian_of_gaussian_filter(self, shape, sigma=1): 
         m, n = [(ss-1.)/2. for ss in shape]
         y, x = np.ogrid[-m:m+1,-n:n+1]
         h = np.exp( -(x*x + y*y) / (2.*sigma*sigma) )
@@ -105,6 +105,28 @@ class ImageFilter:
         filtered_image = ndimage.uniform_filter(image, size=size)
         return filtered_image
 
+    def CannyEdgeDetection(self, image, sigma=1):
+        h = self.gaussian_filter(image.shape, sigma)
+        filtered_image = signal.convolve2d(image, h, mode='same', boundary='symm')
+        edges = cv2.Canny(np.uint8(filtered_image), 100, 200)
+        return edges
+
+    def LaplacianEdgeDetection(self, image, sigma=1):
+        h = self.laplacian_of_gaussian_filter(image.shape, sigma)
+        filtered_image = signal.convolve2d(image, h, mode='same', boundary='symm')
+        return filtered_image
+
     def SobelFilter(self, image):
         filtered_image = ndimage.sobel(image)
         return filtered_image
+
+    def PrewittFilter(self, image):
+        filtered_image = ndimage.prewitt(image)
+        return filtered_image
+
+    def denoise(self, image, weight):
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image = np.float32(image)
+        image = cv2.GaussianBlur(image, (3, 3), 0)
+        dst = cv2.fastNlMeansDenoising(image, None, weight, 7, 21)
+        return dst
