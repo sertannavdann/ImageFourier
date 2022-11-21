@@ -149,6 +149,7 @@ class ImageFilter(ImageProcessing):
     def LaplacianEdgeDetection(self, image, sigma=1):
         h = self.laplacian_of_gaussian_filter(image, sigma)
         image = super().ImageProcess(image)
+        filtered_image = image - h
         filtered_image = signal.convolve2d(image, h, mode='same', boundary='symm')
         return filtered_image
 
