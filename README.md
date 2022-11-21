@@ -1,8 +1,8 @@
 # ImageFournier
 Image Fournier Transform with multiple different methods
 
-##Original Image
+## Original Image
 ![My Image](casaloma.jpeg)
 
-##High Pass filter
+## High Pass filter
 ![My Image](hpf_filtered_image.jpg)
