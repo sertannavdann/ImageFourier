@@ -10,10 +10,9 @@ python combine.py imageName FilterType Ratio=1
 ```
 ### FilterTypes are:
 
-'Gaussian', 'Laplacian', 'Sharp',
-'HighPass', 'LowPass', 'Mean', 
-'Canny', 'LaplacianEdge', 'GaussEdge',
-'Sobel', 'Prewitt', 'SaltPep', 'Denoise'
+'Gaussian', 'Sharp', 'HighPass', 'LowPass', 'Mean', 
+'Canny', 'LaplacianEdge', 'GaussEdge', 'Sobel', 'Prewitt',
+'SaltPep', 'Denoise'
 
 </p>
 
@@ -21,10 +20,7 @@ python combine.py imageName FilterType Ratio=1
 ![Gaussian](/images/edited/GaussianFilter.png)
 
 ### Laplacian
-![Laplacian](/images/edited/LaplacianFilter.png)
-
-### Sharp
-![Sharp](/images/edited/SharpFilter.png)
+![Laplacian](/images/edited/LaplacianOfGaussianFilter.png)
 
 ### HighPass
 ![HighPass](/images/edited/HighPassFilter.png)
@@ -38,8 +34,8 @@ python combine.py imageName FilterType Ratio=1
 ### Canny
 ![Canny](/images/edited/CannyFilter.png)
 
-### LaplacianEdge
-![LaplacianEdge](/images/edited/LaplacianEdgeFilter.png)
+### Sharp
+![Sharp](/images/edited/SharpeningHighPass.png)
 
 ### GaussEdge
 ![GaussEdge](/images/edited/GaussianEdgeDetection.png)
