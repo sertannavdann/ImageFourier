@@ -32,7 +32,7 @@ python combine.py imageName FilterType Ratio=1
 ![Mean](/images/edited/MeanFilter.png)
 
 ### Canny
-![Canny](/images/edited/CannyEdgeDetection.png)
+![Canny](/images/edited/CannyFilter.png)
 
 ### Sharp
 ![Sharp](/images/edited/SharpeningHighPass.png)
@@ -47,7 +47,7 @@ python combine.py imageName FilterType Ratio=1
 ![Prewitt](/images/edited/PrewittFilter.png)
 
 ### SaltPep
-![SaltPep](/images/edited/saltpep_noisy_image.png)
+![SaltPep](/images/edited/salt_pepper_noise.png)
 
 ### Denoise
 ![Denoise](/images/edited/Denoise.png)
