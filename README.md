@@ -47,7 +47,7 @@ python combine.py imageName FilterType Ratio=1
 ![Prewitt](/images/edited/PrewittFilter.png)
 
 ### SaltPep
-![SaltPep](/images/edited/salt_pepper_noise.png)
+![SaltPep](/images/salt_pepper_noise.png)
 
 ### Denoise
 ![Denoise](/images/edited/Denoise.png)
