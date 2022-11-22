@@ -1,4 +1,5 @@
 <p align="center">
+
 # ImageFournier
 Image Fournier Transform with multiple different methods
 
@@ -15,6 +16,27 @@ python combine.py imageName FilterType Ratio=1
 'SaltPep', 'Denoise'
 
 </p>
+
+<p align="center">
+
+  ## Original Images 
+
+</p>
+
+### Casa Loma
+![Casa](/images/casaloma.jpeg)
+
+### Casa Loma
+![FinancialDistrict](/images/finance.jpeg)
+
+<p align="center">
+
+  ## Edited Images 
+
+</p>
+
+### Sharpening With High Pass
+![Sharp](/images/edited/SharpeningHighPass.png)
 
 ### Gaussian
 ![Gaussian](/images/edited/GaussianFilter.png)
@@ -34,8 +56,6 @@ python combine.py imageName FilterType Ratio=1
 ### Canny
 ![Canny](/images/edited/CannyEdgeDetection.png)
 
-### Sharp
-![Sharp](/images/edited/SharpeningHighPass.png)
 
 ### GaussEdge
 ![GaussEdge](/images/edited/GaussianEdgeDetection.png)
