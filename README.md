@@ -17,13 +17,9 @@ python combine.py imageName FilterType Ratio=1
 
 </p>
 
-<p align="center">
+### Gaussian
+![Gaussian](/images/edited/GaussianFilter.png)
 
-        ### Gaussian
-        ![Gaussian](/images/edited/GaussianFilter.png)
-
-        ### Laplacian
-        ![Laplacian](/images/edited/LaplacianFilter.png)
+### Laplacian
+![Laplacian](/images/edited/LaplacianFilter.png)
         
-</p>
-
