@@ -144,13 +144,6 @@ class ImageFilter(ImageProcessing):
         h = self.GaussianFilter(image, sigma)
         image = image - h
         return image
-        
-    def LaplacianEdgeDetection(self, image, sigma=1):
-        h = self.laplacian_of_gaussian_filter(image, sigma)
-        image = super().ImageProcess(image)
-        filtered_image = image - h
-        filtered_image = signal.convolve2d(image, h, mode='same', boundary='symm')
-        return filtered_image
 
     def SobelFilter(self, image):
         image = super().ImageProcess(image)
@@ -210,7 +203,6 @@ if __name__ == '__main__':
     a_game.ImageShow(a_game.LowPassFilter(a_game.image, 1), 'Low Pass Filter')
     a_game.ImageShow(a_game.MeanFilter(a_game.image, 3), 'Mean Filter')
     a_game.ImageShow(a_game.CannyEdgeDetection(a_game.image, 1), 'Canny Edge Detection')
-    a_game.ImageShow(a_game.LaplacianEdgeDetection(a_game.image, 1), 'Laplacian Edge Detection')
     a_game.ImageShow(a_game.GaussianEdgeDetection(a_game.image, 1), 'Gaussian Edge Detection')
     a_game.ImageShow(a_game.SobelFilter(a_game.image), 'Sobel Filter')
     a_game.ImageShow(a_game.PrewittFilter(a_game.image), 'Prewitt Filter')
