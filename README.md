@@ -32,7 +32,7 @@ python combine.py imageName FilterType Ratio=1
 ![Mean](/images/edited/MeanFilter.png)
 
 ### Canny
-![Canny](/images/edited/CannyFilter.png)
+![Canny](/images/edited/CannyEdgeDetection.png)
 
 ### Sharp
 ![Sharp](/images/edited/SharpeningHighPass.png)
