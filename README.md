@@ -5,6 +5,9 @@ Image Fournier Transform with multiple different methods
 ![My Image](images/casaloma_resized.jpg)
 ![My Image](images/finance_square.jpeg)
 
+### Low Pass Gaussian
+![My Image](images/dst.jpg)
+
 ### Noise Generation
 ![My Image](images/edited/saltpep_noisy_image.jpg)
 
