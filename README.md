@@ -26,7 +26,7 @@ python combine.py imageName FilterType Ratio=1
 ### Casa Loma
 ![Casa](/images/casaloma.jpeg)
 
-### Casa Loma
+### Financial District
 ![FinancialDistrict](/images/finance.jpeg)
 
 <p align="center">
