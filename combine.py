@@ -34,9 +34,6 @@ elif filter_type == 'Mean':
 elif filter_type == 'Canny':
     Filter.ImageShow(Filter.CannyEdgeDetection(image, sigma), 'Canny Edge Detection')
     cv2.imwrite(PATH + '/CannyEdgeDetection.png', Filter.CannyEdgeDetection(image, sigma))
-elif filter_type == 'LaplacianEdge':
-    Filter.ImageShow(Filter.LaplacianEdgeDetection(image, sigma), 'Laplacian Edge Detection')
-    cv2.imwrite(PATH + '/LaplacianEdgeDetection.png', Filter.LaplacianEdgeDetection(image, sigma))
 elif filter_type == 'GaussEdge':
     Filter.ImageShow(Filter.GaussianEdgeDetection(image, sigma), 'Gaussian Edge Detection')
     cv2.imwrite(PATH + '/GaussianEdgeDetection.png', Filter.GaussianEdgeDetection(image, sigma))
