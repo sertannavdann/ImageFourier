@@ -42,7 +42,7 @@ python combine.py imageName FilterType Ratio=1
 ![LaplacianEdge](/images/edited/LaplacianEdgeFilter.png)
 
 ### GaussEdge
-![GaussEdge](/images/edited/GaussEdgeFilter.png)
+![GaussEdge](/images/edited/GaussianEdgeDetection.png)
 
 ### Sobel
 ![Sobel](/images/edited/SobelFilter.png)
@@ -51,7 +51,7 @@ python combine.py imageName FilterType Ratio=1
 ![Prewitt](/images/edited/PrewittFilter.png)
 
 ### SaltPep
-![SaltPep](/images/edited/SaltPepFilter.png)
+![SaltPep](/images/edited/saltpep_noisy_image.png)
 
 ### Denoise
-![Denoise](/images/edited/DenoiseFilter.png)
+![Denoise](/images/edited/Denoise.png)
