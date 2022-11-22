@@ -1,21 +1,25 @@
 from finalPart1 import ImageFilter
 import cv2
 import sys
-
-image = cv2.imread(sys.argv[1])
+INSERT_IMG = 'images/'
+image = cv2.imread(INSERT_IMG + sys.argv[1])
 filter_type = sys.argv[2]
 sigma = float(sys.argv[3])
 size = sigma
 
 Filter = ImageFilter(image)
 PATH = 'images/edited'
+
+# add all filter_type to an array
+filter_type_array = ['Gaussian', 'Laplacian', 'Sharp', 'HighPass', 'LowPass', 'Mean', 'Canny', 'LaplacianEdge', 'GaussEdge', 'Sobel', 'Prewitt', 'SaltPep', 'Denoise']
+
 if filter_type == 'Gaussian':
     Filter.ImageShow(Filter.GaussianFilter(image, sigma), 'Gaussian Filter')
     cv2.imwrite(PATH + '/GaussianFilter.png', Filter.GaussianFilter(image, sigma))
 elif filter_type == 'Laplacian':
     Filter.ImageShow(Filter.LaplacianOfGaussianFilter(image, sigma), 'Laplacian of Gaussian Filter')
     cv2.imwrite(PATH + '/LaplacianOfGaussianFilter.png', Filter.LaplacianOfGaussianFilter(image, sigma))
-elif filter_type == 'Sharpening':
+elif filter_type == 'Sharp':
     Filter.ImageShow(Filter.SharpeningHighPass(image, sigma), 'Sharpening High Pass Filter')
     cv2.imwrite(PATH + '/SharpeningHighPass.png', Filter.SharpeningHighPass(image, sigma))
 elif filter_type == 'HighPass':
@@ -33,17 +37,20 @@ elif filter_type == 'Canny':
 elif filter_type == 'LaplacianEdge':
     Filter.ImageShow(Filter.LaplacianEdgeDetection(image, sigma), 'Laplacian Edge Detection')
     cv2.imwrite(PATH + '/LaplacianEdgeDetection.png', Filter.LaplacianEdgeDetection(image, sigma))
+elif filter_type == 'GaussEdge':
+    Filter.ImageShow(Filter.GaussianEdgeDetection(image, sigma), 'Gaussian Edge Detection')
+    cv2.imwrite(PATH + '/GaussianEdgeDetection.png', Filter.GaussianEdgeDetection(image, sigma))
 elif filter_type == 'Sobel':
     Filter.ImageShow(Filter.SobelFilter(image), 'Sobel Filter')
     cv2.imwrite(PATH + '/SobelFilter.png', Filter.SobelFilter(image))
 elif filter_type == 'Prewitt':
     Filter.ImageShow(Filter.PrewittFilter(image), 'Prewitt Filter')
     cv2.imwrite(PATH + '/PrewittFilter.png', Filter.PrewittFilter(image))
+elif filter_type == 'SaltPep':
+    Filter.ImageShow(Filter.salt_pepper_noise(image, sigma), 'Salt and Pepper Noise')
+    cv2.imwrite(PATH + '/salt_pepper_noise.png', Filter.salt_pepper_noise(image, sigma))
 elif filter_type == 'Denoise':
     Filter.ImageShow(Filter.denoise(image, sigma), 'Denoise')
     cv2.imwrite(PATH + '/Denoise.png', Filter.denoise(image, sigma))
 else:
     print ("Invalid filter type")
-
-#save the image
-cv2.imwrite('output.jpg', Filter.image)
