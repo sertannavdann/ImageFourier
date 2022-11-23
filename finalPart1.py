@@ -116,13 +116,15 @@ class ImageFilter(ImageProcessing):
         return image
 
     def SharpeningHighPass(self, image, sigma):
+        image = self.ImageProcess(image)
         kernel_ = np.ones((5,5),np.float32)/sigma
         kernel_[2,2] = 1 - sigma
         image = cv2.filter2D(image,-1,kernel_)
         return image
         
     def HighPassFilter(self, image, sigma=1):
-        kernel = np.ones((5,5),np.float32)/25
+        image = self.ImageProcess(image)
+        kernel = np.ones((5,5),np.float32)/100
         dst = cv2.filter2D(image, -1, kernel)
         dst = image - dst
         return dst
@@ -137,19 +139,32 @@ class ImageFilter(ImageProcessing):
         return filtered_image
 
     def CannyEdgeDetection(self, image, sigma=1):
-        edges = cv2.Canny(image,sigma*80,sigma*90)
+        image = image.astype(np.float32)
+        height, width = image.shape
+        height_middle = int(height/2)
+        width_middle = int(width/2)
+
+        offset = int((height_middle + width_middle) / 3)
+        image = image[height_middle-offset:height_middle+offset, width_middle-offset:width_middle+offset]
+        image = self.ImageProcess(image)
+        edges = cv2.Canny(image,sigma*50,sigma*50)
         return edges
 
     def GaussianEdgeDetection(self, image, sigma):
-        h = self.GaussianFilter(image, sigma)
+        image = self.ImageProcess(image)
+        h = self.GaussianFilter(image, sigma) * (sigma / 10)
         image = image - h
         return image
 
-    def SobelFilter(self, image):
+    def SobelFilter(self, image, sigma):
         image = super().ImageProcess(image)
         # sobel filter
         sobel_x = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])
         sobel_y = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+
+        #multiply with sigma
+        sobel_x = sobel_x * (sigma / 10)
+        sobel_y = sobel_y * (sigma / 10)
 
         # apply sobel filter
         sobel_x = signal.convolve2d(image, sobel_x, mode='same', boundary='symm')
@@ -169,7 +184,7 @@ class ImageFilter(ImageProcessing):
         prewitt_x = signal.convolve2d(shape, prewitt_x, mode='same', boundary='symm')
         prewitt_y = signal.convolve2d(shape, prewitt_y, mode='same', boundary='symm')
         # calculate magnitude
-        prewitt = np.sqrt(prewitt_x**2 + prewitt_y**2)
+        prewitt = np.sqrt(prewitt_x**3 + prewitt_y**3)
         return prewitt
 
     def salt_pepper_noise(self, image, sigma):
@@ -204,7 +219,7 @@ if __name__ == '__main__':
     a_game.ImageShow(a_game.MeanFilter(a_game.image, 3), 'Mean Filter')
     a_game.ImageShow(a_game.CannyEdgeDetection(a_game.image, 1), 'Canny Edge Detection')
     a_game.ImageShow(a_game.GaussianEdgeDetection(a_game.image, 1), 'Gaussian Edge Detection')
-    a_game.ImageShow(a_game.SobelFilter(a_game.image), 'Sobel Filter')
+    a_game.ImageShow(a_game.SobelFilter(a_game.image, 1), 'Sobel Filter')
     a_game.ImageShow(a_game.PrewittFilter(a_game.image), 'Prewitt Filter')
     a_game.ImageShow(a_game.salt_pepper_noise(a_game.image, 1), 'Salt and Pepper Noise')
     a_game.ImageShow(a_game.denoise(a_game.image, 10), 'Denoise')
