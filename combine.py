@@ -38,8 +38,8 @@ elif filter_type == 'GaussEdge':
     Filter.ImageShow(Filter.GaussianEdgeDetection(image, sigma), 'Gaussian Edge Detection')
     cv2.imwrite(PATH + '/GaussianEdgeDetection.png', Filter.GaussianEdgeDetection(image, sigma))
 elif filter_type == 'Sobel':
-    Filter.ImageShow(Filter.SobelFilter(image), 'Sobel Filter')
-    cv2.imwrite(PATH + '/SobelFilter.png', Filter.SobelFilter(image))
+    Filter.ImageShow(Filter.SobelFilter(image, sigma), 'Sobel Filter')
+    cv2.imwrite(PATH + '/SobelFilter.png', Filter.SobelFilter(image, sigma))
 elif filter_type == 'Prewitt':
     Filter.ImageShow(Filter.PrewittFilter(image), 'Prewitt Filter')
     cv2.imwrite(PATH + '/PrewittFilter.png', Filter.PrewittFilter(image))
