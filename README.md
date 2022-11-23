@@ -38,12 +38,6 @@ python combine.py imageName FilterType Ratio=1
 ### Sharpening With High Pass
 ![Sharp](/images/edited/SharpeningHighPass.png)
 
-### Gaussian
-![Gaussian](/images/edited/GaussianFilter.png)
-
-### Laplacian
-![Laplacian](/images/edited/LaplacianOfGaussianFilter.png)
-
 ### HighPass
 ![HighPass](/images/edited/HighPassFilter.png)
 
@@ -55,7 +49,6 @@ python combine.py imageName FilterType Ratio=1
 
 ### Canny
 ![Canny](/images/edited/CannyEdgeDetection.png)
-
 
 ### GaussEdge
 ![GaussEdge](/images/edited/GaussianEdgeDetection.png)
@@ -70,4 +63,4 @@ python combine.py imageName FilterType Ratio=1
 ![SaltPep](/images/salt_pepper_noise.png)
 
 ### Denoise
-![Denoise](/images/edited/Denoise.png)
+![Denoise](/images/edited/saltPep_denoised_image.jpg)
